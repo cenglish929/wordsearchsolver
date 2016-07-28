@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>World Search Solver</title>
+	<link rel="icon" type="image/png" href="images/triforce.png">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="js/wordsearch.js"></script>
+</head>
+<div class="container">
+	<div class="toprow">
+		<p><strong>Word Search Solver</strong></p>
+    <!-- Input content -->
+    <div id="step1">
+      <p>Word Bank</p> <textarea id="words" rows="10" cols="10">
+</textarea><br>
+      <!-- the puzzle -->
+  </div>
+      <p>Word Search</p> <textarea id="puzzleText" rows="20" cols="40">
+</textarea><br>
+      <!-- Prepare the puzzle -->
+      <input type="button" name="toStep2" value="View" id="toStep2" onclick="javascript:puzzle.doCreatePuzzle();" />
+    </div>
+    
+    <!-- Result content -->
+    <div id="step2">
+      <!-- display the puzzle in the table -->
+      <table id="puzzle"></table>
+      <!-- buttons to go back to step 1 and find the solution -->
+      <input type="button" name="back" value="Retry" id="back" onclick="javascript:puzzle.goBack();" /><br />
+      <input type="button" name="check" value="Solve" id="check" onclick="javascript:puzzle.solveThePuzzle();" /><br />
+      <!-- Satistics and the solution -->
+      Found :<input type="text" name="wFound" value="0" id="wFound" /> / <span id="wTotal"></span><br />
+      Not found: <div id="nFound"></div>
+      Solution: <div id="pSolution"></div>
+    </div>
+    
+    <!-- JavaScript execute -->
+    <script type="text/javascript">
+      var puzzle;
+      $(document).ready(function() {
+        puzzle = new Puzzle();
+      });
+    </script>
+  </body>
+</html>
